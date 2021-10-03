@@ -11,7 +11,7 @@ def init_svg(width=400, height=400, fout=fout):
 
 
 def save_svg(fout=fout):
-    fout.write(f'</svg>')
+    fout.write("</svg>")
     fout.close()
 
 
@@ -34,7 +34,7 @@ def polyline(points, stroke="black", fill="transparent", stroke_width=1, closed=
         f'<polyline points="{point_str}" fill="{fill}" stroke="{stroke}" stroke-width="{stroke_width}" {z}/>')
 
 
-def path_c(points, stroke="black", fill="transparent", stroke_width=1, closed=False, smooth_factor=0.3, rounding=2, fout=fout):
+def path_c(points, stroke="black", fill="transparent", stroke_width=1, closed=False, smooth_factor=0.2, rounding=2, fout=fout):
     d_str = f'M {round(points[0][0], rounding)} {round(points[0][1], rounding)}'
     if len(points) > 2:
         d_str += f' C {round(points[0][0]+(points[1][0]-points[0][0])*smooth_factor,rounding)} {round(points[0][1]+(points[1][1]-points[0][1])*smooth_factor, rounding)}, {round(points[1][0]-(points[2][0]-points[0][0])*smooth_factor, rounding)} {round(points[1][1]-(points[2][1]-points[0][1])*smooth_factor, rounding)}, {round(points[1][0], rounding)} {round(points[1][1], rounding)}'
